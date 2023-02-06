@@ -20,12 +20,13 @@ decrement.addEventListener("click", ()=>{
         alert("Məhsul əlavə edin")
     }else{
         count --;
-        document.querySelector("#count").innerHTML = count
-        if(count !== 0)
-        document.querySelector("#fTotal").innerHTML = price - count
-    }
+        document.querySelector("#count").innerHTML = count;
+        document.querySelector("#fTotal").innerHTML = count * price
+        }
+
 })
 
+// nan yoxdu daha, yoxla gorek basqa nese catismazlig var
 
 
 inc.addEventListener("click", ()=>{
@@ -39,14 +40,17 @@ inc.addEventListener("click", ()=>{
      }else{
          counter --;
          document.querySelector("#counter").innerHTML = counter
-         document.querySelector("#sTotal").innerHTML = newPrice - counter
+         document.querySelector("#sTotal").innerHTML = newPrice *counter
+         
 
      }
  })
  
+ 
+function totalSum(){
+    document.querySelector("#sum").innerHTML = Number(document.querySelector("#fTotal").innerHTML) + Number(document.querySelector("#sTotal").innerHTML)
+  
+}
 
-// function totalSum(){
-//     document.querySelector("#sum").innerHTML = totalFirst + totalSecond
-// }
-// console.log(totalSum)
 
+document.addEventListener("click",totalSum)
